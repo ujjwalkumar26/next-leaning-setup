@@ -1,12 +1,13 @@
 import { ITodo } from "../../interfaces/ITodoDto";
-var listOfTodos: ITodo[] = [];
-export const getData = () => listOfTodos;
+var todoDict: Map<string, ITodo> = new Map();
+export const getData: () => Array<ITodo> = () => {
+  let result: ITodo[] = [];
+  todoDict.forEach((x) => result.push(x));
+  return result;
+};
 export const deleteData = (ids: string[]) => {
-  listOfTodos = listOfTodos.filter((todo) => !ids.includes(todo.id));
+  ids.forEach((id) => todoDict.delete(id));
 };
 export const updateData = (newTodo: ITodo) => {
-  let index = listOfTodos.findIndex((todo) => todo.id == newTodo.id);
-  if (index == -1) {
-    listOfTodos.push(newTodo);
-  } else listOfTodos[index] = newTodo;
+  todoDict.set(newTodo.id, newTodo);
 };
