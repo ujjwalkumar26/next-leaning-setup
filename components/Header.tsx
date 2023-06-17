@@ -1,14 +1,14 @@
 import React from "react";
-import { ITodo } from "../interfaces/ITodoDto";
-import { useQueryClient, useMutation } from "@tanstack/react-query";
-import { APINamesEnum } from "../api/apiNames";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { postData } from "../api/common";
+import { APINamesEnum } from "../api/apiNames";
+import AddTodo from "./AddTodo";
 
-export default function Todo({
-  todoBody,
+export default function Header({
+  selectedIds,
   setSelectedIds,
 }: {
-  todoBody: ITodo;
+  selectedIds: Set<string>;
   setSelectedIds: React.Dispatch<React.SetStateAction<Set<string>>>;
 }) {
   const queryClient = useQueryClient();
@@ -26,5 +26,10 @@ export default function Todo({
       },
     }
   );
-  return <>{todoBody}</>;
+  return (
+    <>
+      <>First</>
+      <AddTodo />
+    </>
+  );
 }
