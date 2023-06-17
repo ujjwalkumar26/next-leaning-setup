@@ -6,7 +6,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<ITodo[]>
 ) {
-  var { ids } = req.query;
+  var { ids } = req.body;
   deleteData(ids as string[]);
   res.status(200);
 }

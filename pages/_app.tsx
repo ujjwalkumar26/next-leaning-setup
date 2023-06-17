@@ -19,7 +19,7 @@ const MyApp: React.FC<IAppProps> = ({ Component, pageProps }) => {
     <React.StrictMode>
       <QueryClientProvider client={queryClient} contextSharing={true}>
         <Hydrate state={pageProps.state}>
-          <Component {...pageProps} />
+          <Component {...pageProps} queryClient={queryClient} />
         </Hydrate>
       </QueryClientProvider>
     </React.StrictMode>

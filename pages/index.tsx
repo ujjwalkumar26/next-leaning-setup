@@ -1,15 +1,18 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import HelloWorld from "../components/Hello";
+import { NoSsr } from "@mui/base";
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <NoSsr>
+      <div className={styles.container}>
+        <Head>
+          <title>Next App</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <HelloWorld />
-    </div>
+        <HelloWorld />
+      </div>
+    </NoSsr>
   );
 }
