@@ -5,10 +5,19 @@ export const getAPIURL = (
   urlParams?: string[],
   queryParams?: object
 ): string => {
-  let url = "";
+  let url = "/api/";
   switch (apiName) {
     case APINamesEnum.helloWorld:
-      url = `/api/hello`;
+      url += `hello`;
+      break;
+    case APINamesEnum.getAllTodos:
+      url += "todos";
+      break;
+    case APINamesEnum.updateTodo:
+      url += "update";
+      break;
+    case APINamesEnum.deleteTodos:
+      url = "deleteTodo";
       break;
   }
   url += getURLParamsString(urlParams);
